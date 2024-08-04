@@ -35,7 +35,7 @@ class AuthService{
 
     async getCurrentuser(){
         try{
-            await this.account.get();
+          return await this.account.get();
         }catch(e){
             console.log(e)
         }

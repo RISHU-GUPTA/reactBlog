@@ -14,7 +14,9 @@ function App() {
     authService
       .getCurrentuser()
       .then((res) => {
+        console.log(" cuurent user",res)
         if (res) {
+         
           dispatch(login({ userData: res }));
         } else {
           dispatch(logout());
@@ -29,7 +31,7 @@ function App() {
   <div className="min-h-screen min-w-screen flex flex-wrap content-between bg-gray-400">
       <div className="w-full block">
         <Header/>
-      TODO  <Outlet/>
+        <Outlet/>
         <Footer/>
       </div>
   </div>

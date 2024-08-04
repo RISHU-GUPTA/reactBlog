@@ -6,17 +6,19 @@ import appwriteService from "../../appwrite/config";
 import { Button, Input, RTE, Select } from "..";
 
 function PostForm({post}) {
+    console.log("pos jb",post)
     const {register,handleSubmit,control,watch,setValue,getValues}=useForm({
-        title: post?.title || "",
+        defaultValues:{title: post?.title || "",
             slug: post?.$id || "",
             content: post?.content || "",
-            status: post?.status || "active",
+            status: post?.status || "active",}
     })
 
    const navigate= useNavigate();
    const userData=useSelector(state=>state.auth.userData);
 
    const submit = async (data) => {
+    console.log("goint to sibnit",data)
     if (post) {
         const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
